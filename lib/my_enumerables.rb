@@ -83,6 +83,18 @@ module Enumerable
     end
     returning
   end
+
+  def my_inject (initial=0)
+    acummulator = initial
+    return acummulator unless block_given?
+    count = 0
+    while count < self.length
+      acummulator = yield acummulator, self[count]
+      count += 1
+    end
+    acummulator
+  end
+
 end
 
 # You will first have to define my_each
