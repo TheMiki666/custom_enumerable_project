@@ -20,6 +20,34 @@ module Enumerable
     end
     returning
   end
+
+  def my_all?
+    count = 0
+    while count < self.length
+      return false if !yield self[count]
+      count += 1
+    end
+    true
+  end
+
+  def my_any?
+    count = 0
+    while count < self.length
+      return true if yield self[count]
+      count += 1
+    end
+    false
+  end
+
+  def my_none?
+    count = 0
+    while count < self.length
+      return false if yield self[count]
+      count += 1
+    end
+    true
+  end
+
 end
 
 # You will first have to define my_each
