@@ -9,6 +9,17 @@ module Enumerable
     end
     self
   end
+
+  def my_select
+    returning = []
+    return returning unless block_given?
+    count = 0
+    while count < self.length
+      returning.push(self[count]) if yield self[count]
+      count += 1
+    end
+    returning
+  end
 end
 
 # You will first have to define my_each
