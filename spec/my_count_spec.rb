@@ -19,5 +19,13 @@ RSpec.describe Enumerable do
         expect(enumerable.my_count { |value| value == 5 }).to eq 1
       end
     end
+
+    context 'when given an argument' do
+      it 'returns the count of the elements that are equal to the argument' do
+        expect(enumerable.my_count(1)).to eq 2
+        expect(enumerable.my_count(13)).to eq 1
+        expect(enumerable.my_count(66)).to eq 0
+      end
+    end
   end
 end

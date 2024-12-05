@@ -48,6 +48,22 @@ module Enumerable
     true
   end
 
+  def my_count (argument=nil)
+    returning = 0
+    count = 0
+    while count < self.length
+      if block_given?
+        returning += 1 if yield self[count]
+      elsif !argument.nil?
+        returning +=1 if argument==self[count]
+      else
+        returning += 1
+      end
+      count += 1
+    end
+    returning
+  end
+
 end
 
 # You will first have to define my_each
