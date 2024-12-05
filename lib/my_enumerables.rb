@@ -64,6 +64,25 @@ module Enumerable
     returning
   end
 
+  def my_map (simbol=nil)
+    returning = []
+    if block_given?
+      count = 0
+      while count < self.length
+        returning.push(yield self[count]) 
+        count += 1
+      end
+    elsif !simbol.nil?
+      count = 0
+      while count < self.length
+        returning.push(yield self.simbol) 
+        count += 1
+      end
+    else
+      returning = self
+    end
+    returning
+  end
 end
 
 # You will first have to define my_each
