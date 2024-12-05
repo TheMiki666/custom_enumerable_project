@@ -1,5 +1,14 @@
 module Enumerable
   # Your code goes here
+  def my_each_with_index
+    return self unless block_given?
+    count = 0
+    while count < self.length
+      yield self[count], count
+      count += 1
+    end
+    self
+  end
 end
 
 # You will first have to define my_each
@@ -14,7 +23,6 @@ class Array
       yield self[count]
       count += 1
     end
-
     self
   end
 end
